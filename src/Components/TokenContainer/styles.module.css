@@ -1,0 +1,66 @@
+/* components/TokenCounter.module.css */
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e1e1e; /* Dark background */
+  padding: 15px;
+  align-items: flex-start;
+  border-radius: 10px;
+  color: white;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.tokenText {
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+  color: #e4e4e4;
+}
+
+.wordCount {
+  font-size: 12px;
+  color: #666666; /* Lighter text for words */
+  margin: 5px 0;
+}
+
+.link {
+  font-size: 12px;
+  color: #00aaff; /* Light blue for link */
+  text-decoration: none;
+  margin-top: 5px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.progressContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progressCircle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #888888; /* Light gray border */
+  position: relative;
+}
+
+.progressFill {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background-color: #00aaff; /* Light blue progress */
+  border-radius: 0 100% 100% 0; /* Half circle */
+  transform-origin: center left;
+  transform: rotate(45deg); /* Adjust the progress */
+}

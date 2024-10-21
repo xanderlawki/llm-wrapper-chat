@@ -1,0 +1,46 @@
+/* components/Navbar.module.css */
+
+.navbar {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  background-color: #121212; /* Dark background */
+  padding: 20px 20px;
+}
+
+.leftMenu {
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  flex: 1;
+}
+
+.menuItem {
+  color: #e4e4e4;
+  font-size: 14px;
+  text-decoration: none;
+  font-family: inter;
+  font-weight: 500;
+}
+
+.menuItem:hover {
+  color: #00aaff; /* Change color on hover */
+}
+
+.rightMenu {
+  display: flex;
+  align-items: center;
+}
+
+.profileIcon {
+  background-color: #00aaff; /* Light blue */
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: bold;
+}

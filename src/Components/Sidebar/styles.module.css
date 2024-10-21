@@ -1,0 +1,159 @@
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #121212;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #2d2d2d;
+}
+
+.logo {
+  margin: 5px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.newChatButton {
+  background-color: #2aabbc;
+  color: #2d2d2d;
+  border: none;
+  padding: 15px;
+  border-radius: 30px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+  gap: 10px;
+  display: flex;
+}
+
+.menu li {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.listText {
+  font-size: 16px;
+  color: #e4e4e4;
+  font-weight: 500;
+  font-family: inter;
+}
+
+.imglibrary {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.library {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subMenu {
+  list-style-type: none;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  flex-direction: column;
+  display: flex;
+  gap: 10px;
+  font-family: inter, sans-serif;
+}
+
+.subMenu li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #979797;
+  font-weight: 500;
+  font-family: inter, sans-serif;
+}
+.tokenCntainer {
+  flex-direction: column;
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.sharedelete {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.sharedelete li {
+  font-weight: 500;
+  font-size: 15px;
+  color: #e4e4e4;
+}
+.tokenBox {
+  background-color: #1f1f1f;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.tokenBox p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.tokenBox span {
+  font-size: 12px;
+  color: #888;
+}
+
+.planButton {
+  margin-top: 10px;
+  background-color: #08a2a8;
+  border: none;
+  padding: 8px 16px;
+  color: white;
+  font-size: 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .newChatButton {
+    font-size: 14px;
+  }
+
+  .menu li {
+    font-size: 14px;
+  }
+
+  .subMenu li {
+    font-size: 12px;
+  }
+
+  .tokenBox p {
+    font-size: 12px;
+  }
+
+  .planButton {
+    font-size: 10px;
+  }
+}

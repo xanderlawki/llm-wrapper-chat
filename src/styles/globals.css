@@ -1,0 +1,67 @@
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+
+.quill > .ql-container > .ql-editor.ql-blank::before {
+  font-size: 20px;
+  color: red;
+}
+.custom-toolbar .ql-toolbar {
+  background-color: #f0f0f0; /* Change this color to whatever you prefer */
+}
+
+/* .custom-toolbar .ql-container.ql-snow .ql-editor {
+  min-height: 100px;
+} */
+
+.custom-toolbar .ql-container.ql-snow .ql-editor::before {
+  color: #999999; /* Placeholder text color */
+}
+
+.ql-editor {
+  min-height: 100px;
+  font-size: 16px;
+  padding-right: 40px; /* Give padding to avoid overlapping the send button */
+}
+
+.quillContainer {
+  display: flex;
+  align-items: center;
+}
+
+.custom-toolbar .ql-toolbar {
+  background-color: #f0f0f0; /* Change this color to whatever you prefer */
+}
+
+.custom-toolbar .ql-container.ql-snow .ql-editor {
+  min-height: 100px;
+}
+
+.custom-toolbar .ql-container.ql-snow .ql-editor::before {
+  color: #999999; /* Placeholder text color */
+}
+
+/* Custom Quill Toolbar Styling */
+.custom-toolbar .ql-toolbar {
+  background-color: white; /* Change toolbar background to white */
+  color: black; /* Set default color for text/icons */
+}
+
+.custom-toolbar .ql-picker-label,
+.custom-toolbar .ql-picker-options {
+  color: black !important; /* Ensure dropdown text color is visible */
+}
+
+.custom-toolbar .ql-stroke {
+  stroke: black; /* For SVG icons */
+}
+
+.custom-toolbar .ql-fill {
+  fill: black; /* For SVG icons */
+}
+
+.ReactQuill {
+  flex: 1;
+  margin-right: 10px;
+}
