@@ -10,6 +10,9 @@ import dynamic from "next/dynamic";
 import { HfInference } from "@huggingface/inference";
 import Image from "next/image";
 
+import CommandModal from "./CommandModal";
+import { scrapeWebsite } from "@/api/webscrapper";
+
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const Chatbox = () => {
@@ -33,6 +36,7 @@ const Chatbox = () => {
   const [typingEffectActive, setTypingEffectActive] = useState(false);
   const [typingTimeout, setTypingTimeout] = useState(null);
   const messagesEndRef = useRef(null);
+  const [showCommandModal, setShowCommandModal] = useState(false);
   const typingSpeed = 100;
 
   const scrollToBottom = () => {
@@ -50,6 +54,37 @@ const Chatbox = () => {
     }
     setTypingEffectActive(false);
   };
+  const handleCustomCommand = async (messageText) => {
+    const includeUrlRegex =
+      /\[include-url:\s*(https?:\/\/[^\s]+)\s*(max_execution_time:(\d+))?\s*(filter:(true|false))?\s*(store:(true|false))?\]/;
+    const match = messageText.match(includeUrlRegex);
+
+    if (match) {
+      const url = match[1];
+      const maxExecutionTime = match[3] || 300; // default to 300
+      const filter = match[5] === "true";
+      const store = match[7] === "true";
+
+      // Call the scraping function
+      const scrapedContent = await scrapeWebsite(url);
+
+      if (scrapedContent) {
+        // Replace the command with the scraped content
+        const updatedMessage = messageText.replace(
+          includeUrlRegex,
+          scrapedContent
+        );
+        return updatedMessage;
+      } else {
+        // Handle scraping failure
+        return messageText.replace(
+          includeUrlRegex,
+          "[Error: Failed to scrape website]"
+        );
+      }
+    }
+    return messageText;
+  };
 
   const sendMessage = async (
     messageText = newMessage,
@@ -61,18 +96,18 @@ const Chatbox = () => {
 
     if (messageText?.trim()) {
       setLoading(true);
-
+      const processedMessage = await handleCustomCommand(messageText);
       if (!isEdited) {
         // This handles adding a new message
         setMessages((prevMessages) => [
           ...prevMessages,
-          { id: messages.length + 1, text: messageText, sender: "user" },
+          { id: messages.length + 1, text: processedMessage, sender: "user" },
         ]);
       } else {
         // This handles replacing an edited message
         setMessages((prevMessages) =>
           prevMessages.map((msg) =>
-            msg.id === editingId ? { ...msg, text: messageText } : msg
+            msg.id === editingId ? { ...msg, text: processedMessage } : msg
           )
         );
       }
@@ -245,7 +280,10 @@ const Chatbox = () => {
 
       <div className={styles.bottomMenu}>
         <div className={styles.menuButtons}>
-          <button className={styles.menuButton}>
+          <button
+            className={styles.menuButton}
+            onClick={() => setShowCommandModal(true)}
+          >
             <FiCommand className={styles.menuIcon} /> Commands
           </button>
           <button className={styles.menuButton}>
@@ -262,6 +300,12 @@ const Chatbox = () => {
           32/818 <FaChevronRight />
         </div>
       </div>
+      {showCommandModal && (
+        <CommandModal
+          onClose={() => setShowCommandModal(false)}
+          onSubmit={(command) => setNewMessage((prev) => prev + " " + command)}
+        />
+      )}
     </div>
   );
 };
