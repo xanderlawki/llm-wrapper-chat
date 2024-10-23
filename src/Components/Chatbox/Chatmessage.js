@@ -94,7 +94,7 @@ const ChatMessage = ({
       </div>
 
       {/* Icons under both user and bot messages */}
-      {!isEditing && (
+      {message.sender === "user" && !isEditing && (
         <div
           className={
             message.sender === "bot"

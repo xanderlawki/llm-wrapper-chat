@@ -254,18 +254,22 @@ const Chatbox = () => {
   return (
     <div className={styles.chatboxContainer}>
       <div className={styles.messagesArea}>
-        <Persona />
-        {messages.map((message) => (
-          <ChatMessage
-            key={message.id}
-            message={message}
-            isEditing={editingMessageId === message.id}
-            onEditMessage={handleEditMessage}
-            onSaveEdit={handleSaveEdit}
-            onCancelEdit={handleCancelEdit}
-            setNewMessage={setNewMessage}
-          />
-        ))}
+        <div>
+          <Persona />
+
+          {messages.map((message) => (
+            <ChatMessage
+              key={message.id}
+              message={message}
+              isEditing={editingMessageId === message.id}
+              onEditMessage={handleEditMessage}
+              onSaveEdit={handleSaveEdit}
+              onCancelEdit={handleCancelEdit}
+              setNewMessage={setNewMessage}
+            />
+          ))}
+        </div>
+
         <div ref={messagesEndRef} />
       </div>
 

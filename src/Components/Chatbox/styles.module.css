@@ -3,13 +3,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex: 1;
   border-radius: 8px;
-  height: 88vh;
-  background-color: #121212;
+  height: 100vh;
+  background-color: #202020;
   color: #fff;
   font-family: Arial, sans-serif;
-  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 }
 
 /* Chat Header */
@@ -51,21 +51,6 @@
 }
 
 /* Messages Area */
-/* Messages Area */
-.messagesArea {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 15px;
-  overflow-y: auto;
-  height: calc(
-    100vh - 120px
-  ); /* Adjust this value based on your editor's height */
-  gap: 20px;
-  padding-bottom: 80px; /* Extra padding to account for bottom space */
-  background-color: #121212;
-}
 
 /* User and Bot Messages */
 /* Container for message and icons */
@@ -482,13 +467,343 @@
 }
 
 .inputMessageBox {
-  position: fixed;
-  bottom: 0;
-  left: 250px; /* Adjust this value based on the width of your sidebar */
-  right: 0;
+}
+
+.chatboxContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 8px;
+  height: 100%;
+  background-color: #202020;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+/* Chat Header */
+.chatHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
   background-color: #2e2e2e;
+  border-bottom: 1px solid #444;
+}
+.editControls {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.saveButton {
+  background-color: #fff;
+  color: #000;
+  padding: 10px 10px;
+  border-radius: 25px;
+}
+.cancelButton {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 10px;
+  border-radius: 25px;
+  border: none;
+}
+.headerLeft {
+  display: flex;
+  align-items: center;
+}
+.headerTitle {
+  font-size: 16px;
+  margin-right: 8px;
+  font-weight: bold;
+}
+.headerIcon {
+  cursor: pointer;
+}
+.headerRight {
+  display: flex;
+  align-items: center;
+}
+.closeButton {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+}
+/* Messages Area */
+/* Messages Area */
+.messagesArea {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px 80px;
+  overflow-y: auto;
+  height: 600px;
+  box-sizing: border-box;
+  gap: 20px;
+  background-color: #121212;
+}
+/* User and Bot Messages */
+/* Container for message and icons */
+.messageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align icons and message for user messages */
+  margin-bottom: 20px;
+}
+.botContainer {
+  align-items: flex-start; /* Align icons and message for bot messages */
+}
+/* Message bubble */
+.message {
+  padding: 20px 25px;
+  border-radius: 20px;
+  max-width: 70%;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.userMessage {
+  background-color: #202020;
+  color: #fff;
+  align-self: flex-end;
+}
+.botMessage {
+  background-color: transparent; /* Solid, non-transparent dark background */
+  color: #ffffff; /* White text */
+  /* padding: 15px 20px; */
+  border-radius: 0; /* No border-radius for a square/rectangular look */
+  align-self: flex-start; /* Align to the left */
+  max-width: 100%; /* Take the full width available */
+  margin-bottom: 10px;
+  font-weight: normal; /* Match font style from the image */
+  border: none; /* No border */
+  box-shadow: none; /* Remove any shadow */
+}
+/* Icons container */
+.iconContainer {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+  align-items: center;
+  margin-top: 10px;
+  background-color: #202020;
+  padding: 10px 10px;
+}
+.botIconContainer {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+  align-items: center;
+  margin-top: 10px;
+  background-color: #202020;
+  padding: 10px 10px;
+  margin-left: 25px;
+  margin-top: -20px;
+}
+.icon {
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.2s ease;
+}
+.icon:hover {
+  color: #fff;
+}
+.quillWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.editquillWrapper {
+  position: relative;
+  align-items: center;
+  flex: 1;
+}
+/* Input Area */
+.inputArea {
+  display: flex;
   padding: 15px;
   border-top: 1px solid #444;
-  z-index: 10;
-  width: auto; /* Occupy the full width of the container */
+}
+.messageInput {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: #2e2e2e;
+  color: #fff;
+  font-size: 14px;
+}
+.messageInput::placeholder {
+  color: #aaa;
+}
+.sendButton {
+  background-color: #e4e4e4;
+  border: none;
+  padding: 10px;
+  margin-left: 10px;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sendButtonDisabled {
+  background-color: #444;
+  position: absolute;
+  right: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #e4e4e4;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+}
+/* components/Persona.module.css */
+.personaContainer {
+  background-color: #15272a; /* Dark teal background */
+  padding: 10px 20px;
+  border-radius: 10px; /* Rounded corners */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-self: flex-start;
+  max-width: 70%;
+}
+.defaultText {
+  font-size: 12px;
+  font-weight: 600;
+  color: #969696; /* Light grey color for DEFAULT PERSONA */
+  margin: 0;
+}
+.personaTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #e4e4e4; /* White color for the main title */
+  margin: 5px 0 0 0; /* Add some spacing between lines */
+}
+.inputArea {
+  display: flex;
+  align-items: center;
+  background-color: #2d2d2d; /* Dark background */
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px; /* Separation from message area */
+}
+.messageInput {
+  flex-grow: 1;
+  background-color: #444444; /* Darker input field */
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #cccccc;
+}
+.messageInput::placeholder {
+  color: #bbbbbb;
+}
+.sendButton {
+  background: none;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
+  color: #66d9ef;
+}
+/* New Bottom Menu */
+.bottomMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #2d2d2d;
+  border-top: 1px solid #333; /* Divider */
+}
+.menuButtons {
+  display: flex;
+  gap: 15px;
+}
+.menuButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #cccccc;
+  display: flex;
+  align-items: center;
+}
+.menuIcon {
+  margin-right: 5px;
+}
+.menuButton:hover {
+  color: #ffffff;
+}
+.messageStatus {
+  color: #bbbbbb;
+  display: flex;
+  align-items: center;
+}
+/* styles.module.css */
+/* .inputArea {
+  display: flex;
+  align-items: center;
+} */
+.sendButton {
+  background-color: none;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.sendButton:hover {
+  background-color: grey;
+}
+/* .userMessage {
+  background-color: #e0f7fa;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  align-self: flex-end;
+}
+.botMessage {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+} */
+.menuButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menuButton {
+  margin: 0 10px; /* Adjust the spacing */
+}
+.sendButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.messageInput {
+  flex-grow: 1;
+}
+.sendButton {
+  position: absolute;
+  right: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #e4e4e4;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+}
+.messageInput {
+  flex-grow: 1;
 }

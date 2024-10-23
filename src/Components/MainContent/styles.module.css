@@ -1,12 +1,14 @@
 .mainContent {
-  margin-left: 250px;
-  background-color: #121212;
-  min-height: 100vh;
   height: 100vh;
+  background-color: #121212;
+  color: white;
+  position: fixed;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  position: relative;
+  justify-content: space-between;
+  border-right: 1px solid #2d2d2d;
+  left: 250px;
+  right: 0;
 }
 
 .navbar {
