@@ -1,8 +1,33 @@
 .mainContent {
   margin-left: 250px;
-  background-color: #202020;
+  background-color: #121212;
   min-height: 100vh;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+}
+
+.navbar {
+  flex-shrink: 0; /* Navbar will take its own height */
+}
+
+.header {
+  flex-shrink: 0; /* Header will take its own height */
+}
+
+.chatbox {
+  flex-grow: 1; /* Chatbox takes all remaining space */
+  display: flex;
+  /* position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 70%; */
+  flex-direction: column;
+  justify-content: flex-start; /* Start the chat content from the top */
+  align-items: stretch; /* Make sure it stretches to fill width */
+  /* Allow scrolling when content overflows */
 }
 
 @media (max-width: 768px) {

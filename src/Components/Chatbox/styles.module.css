@@ -3,13 +3,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  flex: 1;
   border-radius: 8px;
-  height: 100%;
-  background-color: #202020;
+  height: 88vh;
+  background-color: #121212;
   color: #fff;
   font-family: Arial, sans-serif;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 /* Chat Header */
@@ -50,34 +50,20 @@
   font-weight: bold;
 }
 
-.headerIcon {
-  cursor: pointer;
-}
-
-.headerRight {
-  display: flex;
-  align-items: center;
-}
-
-.closeButton {
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  font-size: 18px;
-}
-
 /* Messages Area */
 /* Messages Area */
 .messagesArea {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center vertically when few messages */
-  padding: 15px 80px;
+  justify-content: flex-start;
+  padding: 15px;
   overflow-y: auto;
-  height: 100%;
+  height: calc(
+    100vh - 120px
+  ); /* Adjust this value based on your editor's height */
   gap: 20px;
+  padding-bottom: 80px; /* Extra padding to account for bottom space */
   background-color: #121212;
 }
 
@@ -170,9 +156,10 @@
 }
 /* Input Area */
 .inputArea {
-  display: flex;
+  background-color: #2e2e2e;
   padding: 15px;
   border-top: 1px solid #444;
+  z-index: 10;
 }
 
 .messageInput {
@@ -383,4 +370,125 @@
 
 .messageInput {
   flex-grow: 1;
+}
+
+.modal {
+  width: 500px;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 20px;
+  color: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.closeButton {
+  background: none;
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modalContent {
+  margin-top: 20px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.inputBox {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  background-color: transparent;
+  color: #fff;
+}
+
+.advancedButton,
+.insertButton {
+  background-color: #3a3a3a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.advancedButton:hover,
+.insertButton:hover {
+  background-color: #4a4a4a;
+}
+
+.advancedOptions {
+  margin-top: 10px;
+}
+
+.advancedOptions label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.advancedOptions input {
+  margin-left: 10px;
+}
+
+.scrapingModal {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #2e2e2e;
+  padding: 15px;
+  border-radius: 8px;
+  color: #fff;
+  width: 400px;
+}
+
+.urlStatus {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.cancelButton {
+  background-color: red;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  margin-top: 10px;
+}
+
+.inputMessageBox {
+  position: fixed;
+  bottom: 0;
+  left: 250px; /* Adjust this value based on the width of your sidebar */
+  right: 0;
+  background-color: #2e2e2e;
+  padding: 15px;
+  border-top: 1px solid #444;
+  z-index: 10;
+  width: auto; /* Occupy the full width of the container */
 }

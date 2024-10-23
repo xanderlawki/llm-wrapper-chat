@@ -1,3 +1,4 @@
+import Chatbox from "../Chatbox/Chatbox";
 import Header from "../Header/Header";
 import Navbar from "../NavBar/navbar";
 import styles from "./styles.module.css";
@@ -5,8 +6,17 @@ import styles from "./styles.module.css";
 const MainContent = () => {
   return (
     <div className={styles.mainContent}>
-      <Navbar />
-      <Header />
+      <div className={styles.navbar}>
+        <Navbar />
+      </div>
+
+      <div className={styles.header}>
+        <Header />
+      </div>
+
+      <div className={styles.chatbox}>
+        <Chatbox />
+      </div>
     </div>
   );
 };

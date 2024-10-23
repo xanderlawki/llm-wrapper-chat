@@ -1,6 +1,11 @@
 body {
   font-family: "Inter", sans-serif;
   font-size: 14px;
+
+  background-color: #121212;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 .quill > .ql-container > .ql-editor.ql-blank::before {
@@ -48,6 +53,12 @@ body {
   color: black; /* Set default color for text/icons */
 }
 
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .custom-toolbar .ql-picker-label,
 .custom-toolbar .ql-picker-options {
   color: black !important; /* Ensure dropdown text color is visible */
@@ -64,4 +75,106 @@ body {
 .ReactQuill {
   flex: 1;
   margin-right: 10px;
+}
+
+.modal {
+  width: 500px;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 20px;
+  color: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-button {
+  background: none;
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-content {
+  margin-top: 20px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.input-box {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.advanced-button,
+.insert-button {
+  background-color: #3a3a3a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.advanced-button:hover,
+.insert-button:hover {
+  background-color: #4a4a4a;
+}
+
+.advanced-options {
+  margin-top: 10px;
+}
+
+.advanced-options label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.advanced-options input {
+  margin-left: 10px;
+}
+
+.headerIcon {
+  cursor: pointer;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
 }

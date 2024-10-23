@@ -1,10 +1,13 @@
-import MainContent from "../Components/MainContent/MainContent";
-import Sidebar from "../Components/Sidebar/sidebar";
+import MainContent from "../components/MainContent/MainContent";
+import Sidebar from "../components/Sidebar/sidebar";
 
 export default function Home() {
   return (
     <div>
-      <Sidebar />
+      <div style={{ position: "fixed" }}>
+        <Sidebar />
+      </div>
+
       <MainContent />
     </div>
   );

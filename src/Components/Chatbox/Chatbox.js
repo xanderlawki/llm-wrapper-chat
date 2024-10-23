@@ -91,20 +91,20 @@ const Chatbox = () => {
     isEdited = false,
     editingId = null
   ) => {
-    console.log(newMessage, "message yext");
-    resetTypingState(); // Reset before sending a new message or edited message
+    resetTypingState(); // Reset before sending a new message
 
     if (messageText?.trim()) {
-      setLoading(true);
+      setLoading(true); // Start loading for the new message
       const processedMessage = await handleCustomCommand(messageText);
+
       if (!isEdited) {
-        // This handles adding a new message
+        // Add a new user message
         setMessages((prevMessages) => [
           ...prevMessages,
           { id: messages.length + 1, text: processedMessage, sender: "user" },
         ]);
       } else {
-        // This handles replacing an edited message
+        // Replace an edited message
         setMessages((prevMessages) =>
           prevMessages.map((msg) =>
             msg.id === editingId ? { ...msg, text: processedMessage } : msg
@@ -115,7 +115,7 @@ const Chatbox = () => {
       setNewMessage(""); // Clear the input field
 
       if (abortController) {
-        abortController.abort(); // Cancel any previous requests
+        abortController.abort(); // Abort previous request
       }
 
       const controller = new AbortController();
@@ -136,14 +136,15 @@ const Chatbox = () => {
           fullResponse += responseContent;
         }
 
-        renderResponseWithTypingEffect(fullResponse);
+        console.log(fullResponse, "Full response received.");
+        renderResponseWithTypingEffect(fullResponse); // Start typing effect
       } catch (error) {
         if (error.name === "AbortError") {
-          console.log("Request was aborted");
+          console.log("Request was aborted.");
         } else {
           console.error("Error fetching data:", error);
         }
-        setLoading(false);
+        setLoading(false); // Reset loading state if error occurs
       }
     }
   };
@@ -151,14 +152,16 @@ const Chatbox = () => {
   const renderResponseWithTypingEffect = (response) => {
     const words = response.split(" ");
     let index = 0;
+    let typingActive = true; // Local variable to control typing
 
+    // Add an empty bot message before starting typing effect
     setMessages((prevMessages) => [
       ...prevMessages,
       { id: messages.length + 2, text: "", sender: "bot" },
     ]);
 
     const typeNextWord = () => {
-      if (index < words.length && typingEffectActive) {
+      if (index < words.length && typingActive) {
         setMessages((prevMessages) => {
           const lastMessageIndex = prevMessages.length - 1;
           const lastMessage = prevMessages[lastMessageIndex];
@@ -175,12 +178,16 @@ const Chatbox = () => {
 
         index++;
         const timeoutId = setTimeout(typeNextWord, typingSpeed);
-        setTypingTimeout(timeoutId);
+        setTypingTimeout(timeoutId); // Save timeout for potential stop action
       } else {
-        setLoading(false);
+        // Typing completed
+        console.log("Typing effect completed.");
+        resetTypingState();
+        setLoading(false); // Typing has finished, stop loading
       }
     };
 
+    // Start typing effect
     if (words.length > 0) {
       setMessages((prevMessages) => {
         const lastMessageIndex = prevMessages.length - 1;
@@ -190,24 +197,34 @@ const Chatbox = () => {
           ...prevMessages.slice(0, -1),
           {
             ...lastMessage,
-            text: words[0],
+            text: words[0], // Start with the first word
           },
         ];
       });
     }
 
     index++;
-    setTypingEffectActive(true);
+    setTypingEffectActive(true); // Mark typing as active
     const timeoutId = setTimeout(typeNextWord, typingSpeed);
-    setTypingTimeout(timeoutId);
+    setTypingTimeout(timeoutId); // Store the timeout
   };
 
   const handleStop = () => {
     if (abortController) {
-      abortController.abort();
+      abortController.abort(); // Abort the API stream
+      setAbortController(null);
+      console.log("API request aborted.");
     }
-    resetTypingState();
-    setLoading(false);
+
+    // Stop typing effect
+    if (typingTimeout) {
+      clearTimeout(typingTimeout); // Clear the typing effect timeout
+      setTypingTimeout(null);
+      console.log("Typing timeout cleared.");
+    }
+
+    setTypingEffectActive(false); // Stop typing effect
+    setLoading(false); // Ensure UI reflects that loading has stopped
   };
 
   const handleEditMessage = (id) => {
@@ -252,58 +269,63 @@ const Chatbox = () => {
         <div ref={messagesEndRef} />
       </div>
 
-      <div className={styles.inputArea}>
-        <div className={styles.quillWrapper}>
-          <ReactQuill
-            theme="snow"
-            className={`custom-toolbar ${styles.messageInput}`}
-            value={newMessage}
-            onChange={setNewMessage}
-            placeholder="Type '/' for quick access to the command menu."
-          />
+      <div className={styles.inputMessageBox}>
+        <div className={styles.inputArea}>
+          <div className={styles.quillWrapper}>
+            <ReactQuill
+              theme="snow"
+              className={`custom-toolbar ${styles.messageInput}`}
+              value={newMessage}
+              onChange={setNewMessage}
+              placeholder="Type '/' for quick access to the command menu."
+            />
 
-          <button
-            className={
-              newMessage ? styles.sendButton : styles.sendButtonDisabled
-            }
-            onClick={loading ? handleStop : () => sendMessage(newMessage)}
-            disabled={newMessage ? false : true}
-          >
-            {loading ? (
-              <Image src="/stop.svg" width={30} height={30} alt="stop" />
-            ) : (
-              <FaPaperPlane />
-            )}
-          </button>
+            <button
+              className={
+                newMessage ? styles.sendButton : styles.sendButtonDisabled
+              }
+              onClick={loading ? handleStop : () => sendMessage(newMessage)}
+              disabled={newMessage ? false : true}
+            >
+              {loading ? (
+                <Image src="/stop.svg" width={30} height={30} alt="stop" />
+              ) : (
+                <FaPaperPlane />
+              )}
+            </button>
+          </div>
+        </div>
+
+        <div className={styles.bottomMenu}>
+          <div className={styles.menuButtons}>
+            <button
+              className={styles.menuButton}
+              onClick={() => setShowCommandModal(true)}
+            >
+              <FiCommand className={styles.menuIcon} /> Commands
+            </button>
+            <button className={styles.menuButton}>
+              <FaCommentAlt className={styles.menuIcon} /> Prompts
+            </button>
+            <button className={styles.menuButton}>
+              <FaUserAlt className={styles.menuIcon} /> Personas
+            </button>
+            <button className={styles.menuButton}>
+              <IoIosAdd className={styles.menuIcon} /> Add
+            </button>
+          </div>
+          <div className={styles.messageStatus}>
+            32/818 <FaChevronRight />
+          </div>
         </div>
       </div>
 
-      <div className={styles.bottomMenu}>
-        <div className={styles.menuButtons}>
-          <button
-            className={styles.menuButton}
-            onClick={() => setShowCommandModal(true)}
-          >
-            <FiCommand className={styles.menuIcon} /> Commands
-          </button>
-          <button className={styles.menuButton}>
-            <FaCommentAlt className={styles.menuIcon} /> Prompts
-          </button>
-          <button className={styles.menuButton}>
-            <FaUserAlt className={styles.menuIcon} /> Personas
-          </button>
-          <button className={styles.menuButton}>
-            <IoIosAdd className={styles.menuIcon} /> Add
-          </button>
-        </div>
-        <div className={styles.messageStatus}>
-          32/818 <FaChevronRight />
-        </div>
-      </div>
       {showCommandModal && (
         <CommandModal
           onClose={() => setShowCommandModal(false)}
-          onSubmit={(command) => setNewMessage((prev) => prev + " " + command)}
+          onSubmit={(command) =>
+            setNewMessage((prev) => (prev ? prev + " " + command : command))
+          }
         />
       )}
     </div>
