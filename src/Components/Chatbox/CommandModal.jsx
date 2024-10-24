@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+
 import styles from "./styles.module.css";
-import ScrapingModal from "./ScrapingModal";
 
 // Modal for processing and displaying scraping status
 
@@ -88,14 +87,6 @@ const CommandModal = ({ onClose, onSubmit }) => {
           )}
         </div>
       </div>
-
-      {/* Show ScrapingModal when scraping starts */}
-      {scraping && (
-        <ScrapingModal
-          urls={urlsToScrape}
-          onCancel={() => setScraping(false)}
-        />
-      )}
     </div>
   );
 };
