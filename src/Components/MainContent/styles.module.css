@@ -1,5 +1,5 @@
 .mainContent {
-  max-height: 100vh; /* Ensures content takes at least full screen height */
+  max-height: 100vh; /* Ensures content takes full screen height */
   background-color: #121212;
   color: white;
   position: fixed;
@@ -11,24 +11,39 @@
   right: 0;
   top: 0;
   bottom: 0;
-  /* overflow: hidden; */
+  overflow-y: auto; /* Allow vertical scroll on smaller screens */
 }
 
-.navbar {
-  flex-shrink: 0; /* Navbar will take its own height */
-}
-
+.navbar,
 .header {
-  flex-shrink: 0; /* Header will take its own height */
+  flex-shrink: 0; /* Navbar and Header will take their own height */
 }
 
 .chatbox {
-  height: calc(100vh - 60px - 50px - 100px);
-  overflow-y: auto;
+  height: calc(
+    100vh - 60px - 50px - 100px
+  ); /* Adjust based on the header, navbar, and footer heights */
+  overflow-y: auto; /* Enable vertical scrolling in the chatbox */
 }
 
+/* Laptop screens (medium devices and above) */
+@media (max-width: 1024px) {
+  .mainContent {
+    left: 220px; /* Adjust sidebar width for smaller laptops */
+  }
+}
+
+/* Tablets and smaller laptops */
 @media (max-width: 768px) {
   .mainContent {
-    left: 200px;
+    left: 200px; /* Narrow the sidebar further for tablet-sized screens */
+  }
+}
+
+/* Small screens and mobile devices */
+@media (max-width: 600px) {
+  .mainContent {
+    left: 0; /* Full screen width on mobile */
+    right: 0;
   }
 }
