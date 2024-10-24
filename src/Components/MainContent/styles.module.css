@@ -7,33 +7,83 @@
   flex-direction: column;
   justify-content: space-between;
   border-right: 1px solid #2d2d2d;
-  left: 250px;
+  left: 250px; /* Sidebar width */
   right: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll on smaller screens */
+  transition: left 0.3s ease-in-out; /* Smooth transition for sidebar */
 }
 
 .navbar {
-  flex-shrink: 0; /* Navbar will take its own height */
+  flex-shrink: 0;
+  flex-basis: 50px; /* Adjust the height of the navbar */
 }
 
 .header {
-  flex-shrink: 0; /* Header will take its own height */
+  flex-shrink: 0;
+  flex-basis: 60px; /* Fix header height */
 }
 
 .chatbox {
-  flex-grow: 1; /* Chatbox takes all remaining space */
+  flex-grow: 1;
   display: flex;
-  /* position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 70%; */
   flex-direction: column;
-  justify-content: flex-start; /* Start the chat content from the top */
-  align-items: stretch; /* Make sure it stretches to fill width */
-  /* Allow scrolling when content overflows */
+  justify-content: flex-start;
+  align-items: stretch;
+  overflow-y: auto;
+  padding: 10px;
+  max-height: 100%; /* Prevent chatbox content from overflowing */
 }
 
+/* MEDIA QUERIES FOR RESPONSIVENESS */
+
+/* Large laptops and desktops */
+@media (max-width: 1200px) {
+  .mainContent {
+    left: 200px; /* Reduce sidebar width */
+  }
+}
+
+/* Tablets and medium-sized laptops */
+@media (max-width: 992px) {
+  .mainContent {
+    left: 150px; /* Further reduce sidebar width */
+  }
+}
+
+/* Small tablets and landscape phones */
 @media (max-width: 768px) {
   .mainContent {
-    margin-left: 200px;
+    left: 100px; /* Adjust sidebar width */
+    padding: 0 10px; /* Add some padding */
+  }
+
+  .header {
+    flex-basis: 50px; /* Adjust header height */
+  }
+
+  .chatbox {
+    padding: 5px; /* Reduce padding for smaller screens */
+  }
+}
+
+/* Phones and small screens */
+@media (max-width: 576px) {
+  .mainContent {
+    left: 0; /* Sidebar collapses completely */
+    right: 0;
+    padding: 0 10px; /* Add padding for small devices */
+    min-width: 320px; /* Ensure a minimum width */
+  }
+
+  .navbar {
+    display: none; /* Hide the navbar on mobile screens */
+  }
+
+  .header {
+    flex-basis: 50px; /* Adjust header height */
+  }
+
+  .chatbox {
+    padding: 5px; /* Smaller padding for chatbox */
   }
 }
