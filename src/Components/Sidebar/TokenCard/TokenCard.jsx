@@ -2,7 +2,7 @@
 import Image from "next/image";
 import styles from "./styles.module.css";
 
-const TokenCounter = () => {
+const TokenCard = () => {
   return (
     <div className={styles.container}>
       <div className={styles.textContainer}>
@@ -17,4 +17,4 @@ const TokenCounter = () => {
   );
 };
 
-export default TokenCounter;
+export default TokenCard;

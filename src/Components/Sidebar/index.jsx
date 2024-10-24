@@ -8,7 +8,7 @@ import {
   FaCloud,
   FaFileAlt,
 } from "react-icons/fa"; // Icons from react-icons
-import TokenCounter from "../TokenContainer/TokenCounter";
+import TokenCard from "./TokenCard/TokenCard";
 
 const Sidebar = () => {
   return (
@@ -58,7 +58,7 @@ const Sidebar = () => {
         </ul>
       </div>
       <div className={styles.tokenCntainer}>
-        <TokenCounter />
+        <TokenCard />
         <ul className={styles.sharedelete}>
           <li>
             <FaFileAlt className={styles.icon} /> Shared
