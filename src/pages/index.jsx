@@ -1,5 +1,5 @@
-import MainContent from "@/components/MainContent";
-import Sidebar from "@/components/Sidebar";
+import MainContent from "@/Components/MainContent";
+import Sidebar from "@/Components/Sidebar";
 
 export default function Home() {
   return (
