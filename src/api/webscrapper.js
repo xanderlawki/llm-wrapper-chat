@@ -1,7 +1,7 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 
-const API_KEY = "9a4ec06ebdc98f5d6a288b28079ef2a8";
+const API_KEY = process.env.NEXT_SCRAPPER_API_KEY;
 
 export async function scrapeWebsite(url) {
   try {
