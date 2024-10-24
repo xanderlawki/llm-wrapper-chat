@@ -6,7 +6,7 @@ export default function Home() {
     <div
       style={{ position: "relative", flexDirection: "row", display: "flex" }}
     >
-      <div style={{ position: "fixed" }}>
+      <div>
         <Sidebar />
       </div>
 
