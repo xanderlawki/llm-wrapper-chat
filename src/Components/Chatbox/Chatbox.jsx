@@ -36,6 +36,7 @@ const Chatbox = () => {
   const [typingEffectActive, setTypingEffectActive] = useState(false);
   const [typingTimeout, setTypingTimeout] = useState(null);
   const messagesEndRef = useRef(null);
+  const [isDisabled, setIsDisabled] = useState();
   const [showCommandModal, setShowCommandModal] = useState(false);
   const typingSpeed = 100;
 
@@ -251,6 +252,18 @@ const Chatbox = () => {
     setEditingMessageId(null); // Exit edit mode without saving
   };
 
+  const handleDisable = () => {
+    if (newMessage.trim() === "") {
+      setIsDisabled(true);
+    } else {
+      return setIsDisabled(false);
+    }
+  };
+
+  useEffect(() => {
+    handleDisable();
+  }, [newMessage]);
+  console.log(newMessage, "nee ee");
   return (
     <div className={styles.chatboxContainer}>
       <div className={styles.messagesArea}>
@@ -287,7 +300,7 @@ const Chatbox = () => {
                 newMessage ? styles.sendButton : styles.sendButtonDisabled
               }
               onClick={loading ? handleStop : () => sendMessage(newMessage)}
-              disabled={newMessage ? false : true}
+              disabled={newMessage.trim() === ""}
             >
               {loading ? (
                 <Image src="/stop.svg" width={30} height={30} alt="stop" />
