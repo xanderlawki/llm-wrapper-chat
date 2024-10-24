@@ -14,16 +14,13 @@
 
 .navbar {
   flex-shrink: 0; /* Navbar will take its own height */
-  height: 7%;
 }
 
 .header {
   flex-shrink: 0; /* Header will take its own height */
-  height: 10%;
 }
 
 .chatbox {
-  height: 83%;
   flex-grow: 1; /* Chatbox takes all remaining space */
   display: flex;
   /* position: fixed;
