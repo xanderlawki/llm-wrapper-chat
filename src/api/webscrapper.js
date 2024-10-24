@@ -6,7 +6,7 @@ const API_KEY = process.env.NEXT_SCRAPPER_API_KEY;
 export async function scrapeWebsite(url) {
   try {
     // Fetch the website content using ScraperAPI to bypass CORS
-    const response = await axios.get("http://api.scraperapi.com", {
+    const response = await axios.get(process.env.NEXT_SCRAPPER_API, {
       params: {
         api_key: API_KEY,
         url: url,
