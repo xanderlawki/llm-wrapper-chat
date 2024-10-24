@@ -14,14 +14,22 @@
   overflow-y: auto; /* Allow vertical scroll on smaller screens */
 }
 
-.navbar,
 .header {
-  flex-shrink: 0; /* Navbar and Header will take their own height */
+  flex-shrink: 0;
+  margin: 0; /* Remove extra margins */
+  padding: 10px 20px; /* Adjust padding to reduce space */
+}
+
+/* Sidebar */
+.navbar {
+  flex-shrink: 0;
+  margin: 0; /* Remove any unnecessary margin from the navbar */
+  padding: 0; /* Remove any padding that might be adding extra space */
 }
 
 .chatbox {
   height: calc(
-    100vh - 60px - 50px - 100px
+    100vh - 60px - 5px - 100px
   ); /* Adjust based on the header, navbar, and footer heights */
   overflow-y: auto; /* Enable vertical scrolling in the chatbox */
 }
@@ -31,8 +39,42 @@
   .mainContent {
     left: 220px; /* Adjust sidebar width for smaller laptops */
   }
+  .chatbox {
+    height: calc(
+      100vh - 60px - 5px - 100px
+    ); /* Adjust based on the header, navbar, and footer heights */
+    overflow-y: auto; /* Enable vertical scrolling in the chatbox */
+  }
 }
 
+@media (min-width: 1600px) {
+  .mainContent {
+    left: 280px; /* Slightly increase the sidebar width */
+    max-width: 1700px; /* Cap the content width */
+  }
+  .chatbox {
+    height: calc(
+      100vh - 60px - 5px - 100px
+    ); /* Adjust based on the header, navbar, and footer heights */
+    overflow-y: auto; /* Enable vertical scrolling in the chatbox */
+  }
+  .header {
+    padding: 30px 50px; /* More generous padding for large screens */
+  }
+}
+
+@media (min-width: 1920px) {
+  .mainContent {
+    left: 350px; /* Increase sidebar width for ultra-large screens */
+    max-width: 1800px; /* Limit the max width to avoid over-stretching */
+  }
+  .chatbox {
+    height: calc(
+      100vh - 60px - 5px - 100px
+    ); /* Adjust based on the header, navbar, and footer heights */
+    overflow-y: auto; /* Enable vertical scrolling in the chatbox */
+  }
+}
 /* Tablets and smaller laptops */
 @media (max-width: 768px) {
   .mainContent {
