@@ -141,6 +141,7 @@
 @media (max-width: 1024px) {
   .sidebar {
     width: 220px; /* Reduce width for medium devices */
+    overflow-y: auto;
   }
 
   .newChatButton {
@@ -156,6 +157,7 @@
 @media (max-width: 768px) {
   .sidebar {
     width: 200px; /* Reduce width further for small screens */
+    overflow-y: auto;
   }
 
   .newChatButton {
@@ -185,6 +187,7 @@
   .sidebar {
     width: 180px; /* For very small screens */
     padding: 15px; /* Adjust padding */
+    overflow-y: auto;
   }
 
   .newChatButton {
@@ -208,5 +211,17 @@
   .planButton {
     font-size: 9px;
     padding: 5px 10px;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1440px) {
+  .sidebar {
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    overflow-y: auto;
   }
 }
