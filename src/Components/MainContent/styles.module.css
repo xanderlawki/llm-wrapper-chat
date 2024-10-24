@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: space-between;
   border-right: 1px solid #2d2d2d;
-  left: 250px; /* Sidebar width */
+  left: 250px;
   right: 0;
   overflow-x: hidden; /* Prevent horizontal scroll on smaller screens */
   transition: left 0.3s ease-in-out; /* Smooth transition for sidebar */
