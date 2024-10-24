@@ -14,7 +14,7 @@ The LLM Wrapper Chat is an interactive web application that allows users to enga
 ## Getting Started
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
+   git clone https://github.com/xanderlawki/llm-wrapper-chat.git
    cd your-repo-name
 
    Install Dependencies:
