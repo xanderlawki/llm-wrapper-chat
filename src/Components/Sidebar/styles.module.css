@@ -12,6 +12,25 @@
   transition: width 0.3s ease-in-out; /* Smooth transition */
 }
 
+/* For WebKit browsers (Chrome, Safari) */
+.sidebar::-webkit-scrollbar {
+  width: 4px; /* Width of the scrollbar */
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Background of the scrollbar track */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #f0f0f0; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners of the scrollbar thumb */
+}
+
+/* Optional: Add hover effect */
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #f0f0f0; /* Darker shade on hover */
+}
+
 .logo {
   margin: 5px;
   margin-bottom: 20px;
@@ -181,6 +200,23 @@
     font-size: 10px;
     padding: 6px 12px;
   }
+  .sidebar::-webkit-scrollbar {
+    width: 4px; /* Width of the scrollbar */
+  }
+
+  .sidebar::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Background of the scrollbar track */
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    background-color: #f0f0f0; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners of the scrollbar thumb */
+  }
+
+  /* Optional: Add hover effect */
+  .sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: #f0f0f0; /* Darker shade on hover */
+  }
 }
 
 @media (max-width: 576px) {
@@ -188,6 +224,23 @@
     width: 180px; /* For very small screens */
     padding: 15px; /* Adjust padding */
     overflow-y: auto;
+  }
+  .sidebar::-webkit-scrollbar {
+    width: 4px; /* Width of the scrollbar */
+  }
+
+  .sidebar::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Background of the scrollbar track */
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    background-color: #f0f0f0; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners of the scrollbar thumb */
+  }
+
+  /* Optional: Add hover effect */
+  .sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: #f0f0f0; /* Darker shade on hover */
   }
 
   .newChatButton {
@@ -218,10 +271,44 @@
   .sidebar {
     overflow-y: auto;
   }
+  .sidebar::-webkit-scrollbar {
+    width: 4px; /* Width of the scrollbar */
+  }
+
+  .sidebar::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Background of the scrollbar track */
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    background-color: #f0f0f0; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners of the scrollbar thumb */
+  }
+
+  /* Optional: Add hover effect */
+  .sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: #f0f0f0; /* Darker shade on hover */
+  }
 }
 
 @media (max-width: 768px) {
   .sidebar {
     overflow-y: auto;
+  }
+  .sidebar::-webkit-scrollbar {
+    width: 4px; /* Width of the scrollbar */
+  }
+
+  .sidebar::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Background of the scrollbar track */
+  }
+
+  .sidebar::-webkit-scrollbar-thumb {
+    background-color: #f0f0f0; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners of the scrollbar thumb */
+  }
+
+  /* Optional: Add hover effect */
+  .sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: #f0f0f0; /* Darker shade on hover */
   }
 }
