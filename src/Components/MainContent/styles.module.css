@@ -35,6 +35,18 @@
   /* Allow scrolling when content overflows */
 }
 
+@media (min-width: 1280px) and (max-width: 1440px) {
+  .mainContent {
+    left: 300px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1366px) {
+  .chatboxContainer {
+    left: 300px; /* Increased padding for better spacing on larger screens */
+  }
+}
+
 @media (max-width: 768px) {
   .mainContent {
     margin-left: 200px;
