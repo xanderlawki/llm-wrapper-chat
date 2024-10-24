@@ -22,12 +22,7 @@ const Chatbox = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "<p>This is a <strong>bold</strong> statement!</p>",
-      sender: "user",
-    },
-    {
-      id: 2,
-      text: "Here is some code:\n```js\nconsole.log('Hello World');\n```",
+      text: "How can I help you today to ensure your prompts yield the best possible results?",
       sender: "bot",
     },
   ]);
