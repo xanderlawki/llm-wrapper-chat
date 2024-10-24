@@ -6,8 +6,8 @@
   flex-direction: column;
   justify-content: space-between;
   border-right: 1px solid #2d2d2d;
-  left: 250px;
-  right: 0;
+  /* left: 250px;
+  right: 0; */
   flex: 1;
   overflow-y: auto;
 }
@@ -35,13 +35,12 @@
 
 @media (min-width: 1280px) and (max-width: 1440px) {
   .mainContent {
-    left: 300px;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1366px) {
   .chatboxContainer {
-    left: 300px; /* Increased padding for better spacing on larger screens */
+    /* Increased padding for better spacing on larger screens */
   }
 }
 
