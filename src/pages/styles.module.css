@@ -1,0 +1,9 @@
+.container {
+  position: relative;
+  flex-direction: row;
+  display: flex;
+  flex: 1;
+  overflow-y: clip;
+  flex-direction: row;
+  justify-content: space-between;
+}

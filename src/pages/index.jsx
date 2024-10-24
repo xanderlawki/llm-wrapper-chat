@@ -1,11 +1,9 @@
 import MainContent from "@/Components/MainContent";
 import Sidebar from "@/Components/Sidebar";
-
+import styles from "./styles.module.css";
 export default function Home() {
   return (
-    <div
-      style={{ position: "relative", flexDirection: "row", display: "flex" }}
-    >
+    <div className={styles.container}>
       <Sidebar />
 
       <MainContent />

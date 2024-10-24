@@ -198,3 +198,13 @@ html {
   border-radius: 8px; /* Rounded corners */
   border: 1px solid transparent; /* Adds padding to the thumb */
 }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Force the body and html to be 100% of the viewport height */
+  overflow: hidden; /* Prevent overflow beyond 100vh */
+  display: flex;
+  flex-direction: column;
+}

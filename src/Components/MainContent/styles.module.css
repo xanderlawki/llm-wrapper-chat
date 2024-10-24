@@ -2,13 +2,14 @@
   height: 100vh;
   background-color: #121212;
   color: white;
-  position: fixed;
+  /* position: fixed; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border-right: 1px solid #2d2d2d;
   left: 250px;
   right: 0;
+  flex: 1;
 }
 
 .navbar {
