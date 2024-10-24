@@ -7,29 +7,31 @@
   flex-direction: column;
   justify-content: space-between;
   border-right: 1px solid #2d2d2d;
-  left: 250px;
+  flex: 0 0 70%;
   right: 0;
   flex: 1;
-  overflow-y: auto;
-}
-
-.navbar {
-  flex-shrink: 0; /* Navbar will take its own height */
+  overflow-y: auto; /* Allows to grow to the remaining space */
+  /* height: 100%;
+  max-height: 100vh; */
 }
 
 .header {
-  flex-shrink: 0; /* Header will take its own height */
+  display: flex;
+  flex: 0 0 30%;
 }
 
 .chatbox {
-  flex-grow: 1; /* Chatbox takes all remaining space */
+  flex: 0 0 70%;
+  /* Chatbox takes all remaining space */
   display: flex;
   /* position: fixed;
   left: 0;
   bottom: 0;
   width: 70%; */
+  margin-top: 20px;
   flex-direction: column;
-  justify-content: flex-start; /* Start the chat content from the top */
+  overflow-y: auto;
+  flex: 1;
   align-items: stretch; /* Make sure it stretches to fill width */
   /* Allow scrolling when content overflows */
 }

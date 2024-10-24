@@ -8,12 +8,14 @@ import styles from "./styles.module.css";
 const MainContent = () => {
   return (
     <div className={styles.mainContent}>
-      <div className={styles.navbar}>
-        <Navbar />
-      </div>
+      <div>
+        <div className={styles.navbar}>
+          <Navbar />
+        </div>
 
-      <div className={styles.header}>
-        <Header />
+        <div className={styles.header}>
+          <Header />
+        </div>
       </div>
 
       <div className={styles.chatbox}>

@@ -10,6 +10,9 @@
   font-family: Arial, sans-serif;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  flex-grow: 1; /* This allows the chatbox to fill available space */
+  max-height: 100%; /* Ensures it doesn't overflow */
+  min-height: 0;
 }
 
 /* Chat Header */
