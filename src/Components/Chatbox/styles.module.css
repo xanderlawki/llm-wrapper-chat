@@ -538,12 +538,40 @@
   flex-direction: column;
   justify-content: center;
   padding: 15px 80px;
-  overflow-y: auto;
-  height: 600px;
-  box-sizing: border-box;
+
   gap: 20px;
   background-color: #121212;
 }
+
+.messageHeader {
+  overflow-y: auto;
+  height: 600px;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: #f1f1f1;
+  scrollbar-color: #f0f0f0 #f0f0f0;
+  /* Makes scrollbar thinner */
+}
+
+/* For WebKit browsers (Chrome, Safari) */
+.messageHeader::-webkit-scrollbar {
+  width: 4px; /* Width of the scrollbar */
+}
+
+.messageHeader::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Background of the scrollbar track */
+}
+
+.messageHeader::-webkit-scrollbar-thumb {
+  background-color: #15ba5c; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners of the scrollbar thumb */
+}
+
+/* Optional: Add hover effect */
+.messageHeader::-webkit-scrollbar-thumb:hover {
+  background-color: #0f9b43; /* Darker shade on hover */
+}
+
 /* User and Bot Messages */
 /* Container for message and icons */
 .messageContainer {

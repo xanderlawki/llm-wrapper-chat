@@ -178,3 +178,23 @@ html {
   cursor: pointer;
   font-size: 18px;
 }
+
+.messageHeader::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the scrollbar track */
+}
+
+.messageHeader::-webkit-scrollbar {
+  width: 8px; /* Adjust width here */
+}
+
+.messageHeader::-webkit-scrollbar {
+  background-color: #f1f1f1;
+  width: 0.25rem;
+  height: 0.25rem;
+}
+
+.messageHeader::-webkit-scrollbar-thumb {
+  background-color: #f1f1f1; /* Thumb color */
+  border-radius: 8px; /* Rounded corners */
+  border: 1px solid transparent; /* Adds padding to the thumb */
+}

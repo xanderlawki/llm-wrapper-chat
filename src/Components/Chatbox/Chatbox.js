@@ -254,9 +254,8 @@ const Chatbox = () => {
   return (
     <div className={styles.chatboxContainer}>
       <div className={styles.messagesArea}>
-        <div>
+        <div className={styles.messageHeader}>
           <Persona />
-
           {messages.map((message) => (
             <ChatMessage
               key={message.id}
@@ -268,9 +267,8 @@ const Chatbox = () => {
               setNewMessage={setNewMessage}
             />
           ))}
+          <div ref={messagesEndRef} />
         </div>
-
-        <div ref={messagesEndRef} />
       </div>
 
       <div className={styles.inputMessageBox}>
