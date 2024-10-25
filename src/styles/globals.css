@@ -5,7 +5,6 @@ body {
   background-color: #121212;
   margin: 0;
   padding: 0;
-  height: 100%;
 }
 
 .quill > .ql-container > .ql-editor.ql-blank::before {
@@ -203,7 +202,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%; /* Force the body and html to be 100% of the viewport height */
+  height: 100vh; /* Force the body and html to be 100% of the viewport height */
   overflow-x: hidden; /* Prevent overflow beyond 100vh */
   display: flex;
   flex-direction: column;
