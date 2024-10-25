@@ -858,6 +858,7 @@
 .chatboxContainer {
   display: flex;
   flex-direction: column;
+  height: calc(100vh - 150px);
 }
 /* Chat Header */
 .chatHeader {

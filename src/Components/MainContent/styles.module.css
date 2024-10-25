@@ -21,6 +21,7 @@
 }
 
 .chatbox {
+  height: 100vh;
   flex: 0 0 70%;
   /* Chatbox takes all remaining space */
   display: flex;

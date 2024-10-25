@@ -8,7 +8,7 @@ import styles from "./styles.module.css";
 const MainContent = () => {
   return (
     <div className={styles.mainContent}>
-      <div>
+      <div style={{ height: "150px" }}>
         <div className={styles.navbar}>
           <Navbar />
         </div>
