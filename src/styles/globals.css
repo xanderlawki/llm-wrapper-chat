@@ -18,7 +18,12 @@ body {
 /* .custom-toolbar .ql-container.ql-snow .ql-editor {
   min-height: 100px;
 } */
-
+.ql-toolbar.ql-snow {
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  padding: 2px !important;
+}
 .custom-toolbar .ql-container.ql-snow .ql-editor::before {
   color: #999999; /* Placeholder text color */
 }
@@ -39,7 +44,7 @@ body {
 }
 
 .custom-toolbar .ql-container.ql-snow .ql-editor {
-  min-height: 100px;
+  min-height: 70px;
 }
 
 .custom-toolbar .ql-container.ql-snow .ql-editor::before {
@@ -206,4 +211,17 @@ body {
   overflow-x: hidden; /* Prevent overflow beyond 100vh */
   display: flex;
   flex-direction: column;
+}
+
+html,
+body,
+#__next {
+  height: 100%; /* Ensures html, body, and Next.js root take full height */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: inherit;
 }
